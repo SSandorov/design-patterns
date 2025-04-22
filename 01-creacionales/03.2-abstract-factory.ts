@@ -87,8 +87,8 @@ function main(factory: VehicleFactory) {
 }
 
 // Pruebas
-console.log('Creando vehículo eléctrico:');
+console.log("Creando vehículo eléctrico:");
 main(new ElectricVehicleFactory());
 
-console.log('\nCreando vehículo de combustión:');
+console.log("\nCreando vehículo de combustión:");
 main(new GasVehicleFactory());

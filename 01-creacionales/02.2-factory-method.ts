@@ -24,7 +24,7 @@
       el prompt para seleccionar el tipo de reporte.
  */
 
-import { COLORS } from '../helpers/colors.ts';
+import { COLORS } from "../helpers/colors.ts";
 
 // 1. Definir la interfaz Report
 interface Report {
@@ -59,13 +59,13 @@ abstract class ReportFactory {
 
 class SalesReportFactory extends ReportFactory {
   createReport(): Report {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
 }
 
 class InventoryReportFactory extends ReportFactory {
   createReport(): Report {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
 }
 
@@ -75,11 +75,11 @@ function main() {
   let reportFactory: ReportFactory;
 
   const reportType = prompt(
-    '¿Qué tipo de reporte deseas? %c(sales/inventory)',
+    "¿Qué tipo de reporte deseas? %c(sales/inventory)",
     COLORS.red
   );
 
-  if (reportType === 'sales') {
+  if (reportType === "sales") {
     reportFactory = new SalesReportFactory();
   } else {
     reportFactory = new InventoryReportFactory();
