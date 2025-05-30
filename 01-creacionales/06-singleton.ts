@@ -54,8 +54,23 @@ class DragonBalls {
   }
 }
 
-const bolasDelDragon = DragonBalls.getInstance();
-const bolasDelDragon2 = DragonBalls.getInstance();
+function main() {
+  const gokuDragonBalls = DragonBalls.getInstance();
 
-console.log(bolasDelDragon);
-console.log(bolasDelDragon2);
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+
+  gokuDragonBalls.summonShenlong();
+
+  const vegetaDragonBalls = DragonBalls.getInstance();
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+
+  gokuDragonBalls.summonShenlong();
+  vegetaDragonBalls.summonShenlong();
+}
+
+main();
