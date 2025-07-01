@@ -41,7 +41,7 @@
         para calcular los impuestos.
  */
 
-import { COLORS } from '../helpers/colors.ts';
+import { COLORS } from "../helpers/colors.ts";
 
 // Interfaz Strategy
 interface TaxStrategy {
@@ -92,16 +92,16 @@ class TaxCalculator {
 function main(): void {
   const taxCalculator = new TaxCalculator(new USATaxStrategy());
 
-  console.log('%cCálculo de impuestos:\n', COLORS.red);
-  console.log('USA: $', taxCalculator.calculate(100).toFixed(2));
+  console.log("%cCálculo de impuestos:\n", COLORS.red);
+  console.log("USA: $", taxCalculator.calculate(100).toFixed(2));
 
-  console.log('\nCambiando a estrategia para Canada...');
+  console.log("\nCambiando a estrategia para Canada...");
   taxCalculator.setStrategy(new CanadaTaxStrategy());
-  console.log('Canada: $', taxCalculator.calculate(100).toFixed(2));
+  console.log("Canada: $", taxCalculator.calculate(100).toFixed(2));
 
-  console.log('\nCambiando a estrategia para Germany...');
+  console.log("\nCambiando a estrategia para Germany...");
   taxCalculator.setStrategy(new GermanyTaxStrategy());
-  console.log('Germany: $', taxCalculator.calculate(100).toFixed(2));
+  console.log("Germany: $", taxCalculator.calculate(100).toFixed(2));
 }
 
 main();

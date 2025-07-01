@@ -20,60 +20,59 @@ import { COLORS } from "../helpers/colors.ts";
  * ! estrategia de movimiento (por ejemplo, nadar, volar o caminar).
  */
 
-
 interface MovementStrategy {
-    move(): void;
+  move(): void;
 }
 class SwimFast implements MovementStrategy {
-    move(): void {
-      console.log(`%cEl pato nada rapidamente sobre el agua`, COLORS.blue);
-    }
+  move(): void {
+    console.log(`%cEl pato nada rapidamente sobre el agua`, COLORS.blue);
+  }
 }
 class FlyOverWater implements MovementStrategy {
-    move(): void {
-      console.log(`%cEl pato vuela sobre el agua`, COLORS.pink);
-    }
+  move(): void {
+    console.log(`%cEl pato vuela sobre el agua`, COLORS.pink);
+  }
 }
 class Walks implements MovementStrategy {
-    move(): void {
-      console.log(`%cEl pato camina patosamente`, COLORS.green);
-    }
+  move(): void {
+    console.log(`%cEl pato camina patosamente`, COLORS.green);
+  }
 }
 
 class Duck {
-    private name: string;
-    private movementStrategy: MovementStrategy;
+  private name: string;
+  private movementStrategy: MovementStrategy;
 
-    constructor(name: string, movementStrategy: MovementStrategy) {
-        this.name = name;
-        this.movementStrategy = movementStrategy;
+  constructor(name: string, movementStrategy: MovementStrategy) {
+    this.name = name;
+    this.movementStrategy = movementStrategy;
 
-        console.log(`%c${ name } %clisto para competir`, COLORS.cyan, COLORS.white);
-    }
+    console.log(`%c${name} %clisto para competir`, COLORS.cyan, COLORS.white);
+  }
 
-    performMove() {
-        console.log(`${this.name} se prepara para moverse...`);
-        this.movementStrategy.move();
-    }
+  performMove() {
+    console.log(`${this.name} se prepara para moverse...`);
+    this.movementStrategy.move();
+  }
 
-    setMovementStrategy(strategy: MovementStrategy) {
-        this.movementStrategy = strategy;
-        console.log(`${this.name} cambio de estrategia`);
-    } 
+  setMovementStrategy(strategy: MovementStrategy) {
+    this.movementStrategy = strategy;
+    console.log(`${this.name} cambio de estrategia`);
+  }
 }
 
 function main() {
-    const duck1 = new Duck('Patito rapido', new SwimFast());
-    const duck2 = new Duck('Patito volador', new FlyOverWater());
-    const duck3 = new Duck('Patito lento', new Walks());
+  const duck1 = new Duck("Patito rapido", new SwimFast());
+  const duck2 = new Duck("Patito volador", new FlyOverWater());
+  const duck3 = new Duck("Patito lento", new Walks());
 
-    console.log('%c Comienza la carrera de patos!', COLORS.red);
-    duck1.performMove();
-    duck2.performMove();
-    duck3.performMove();
+  console.log("%c Comienza la carrera de patos!", COLORS.red);
+  duck1.performMove();
+  duck2.performMove();
+  duck3.performMove();
 
-    duck3.setMovementStrategy(new FlyOverWater());
-    duck3.performMove();
+  duck3.setMovementStrategy(new FlyOverWater());
+  duck3.performMove();
 }
 
 main();
